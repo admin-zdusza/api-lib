@@ -1,6 +1,6 @@
 {
   "name": "api-lib-zdusza",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "engines": {
     "node": "14.16.1",
