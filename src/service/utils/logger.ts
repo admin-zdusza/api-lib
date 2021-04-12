@@ -3,7 +3,7 @@ import bunyan from "bunyan";
 let logger = null;
 
 const createLogger = (name: string) => {
-  logger = bunyan.createLogger({name});
+  logger = bunyan.createLogger({ name });
   /* eslint-disable no-underscore-dangle, no-param-reassign, no-underscore-dangle */
   logger._emit = (rec, noemit) => {
     delete rec.hostname;
@@ -16,13 +16,12 @@ const createLogger = (name: string) => {
   /* eslint-enable no-underscore-dangle, no-param-reassign, no-underscore-dangle */
 };
 
-
 const logStorableEvent = (line) => {
   logger.info(line);
 };
 
 const logInfo = (event) => {
-  logger.info({logEvent: event});
+  logger.info({ logEvent: event });
 };
 
 const logError = (err) => {
