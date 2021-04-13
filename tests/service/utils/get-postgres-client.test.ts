@@ -15,7 +15,6 @@ beforeAll(async () => {
 afterAll(async () => {
   await container.stop();
   jest.setTimeout(5000);
-
 });
 
 test("should get postgres client", async () => {
@@ -23,18 +22,21 @@ test("should get postgres client", async () => {
     5432
   )}/test`;
   const db = await getPostgresClient(dbUrl, false, false);
-  let response = await db.raw("select 1.2 as test_value_1, 1.2::float as test_value_2");
+  let response = await db.raw(
+    "select 1.2 as test_value_1, 1.2::float as test_value_2"
+  );
   expect(response.rows).toMatchSnapshot();
-  await db.schema.createTable('test', function (table) {
+  await db.schema.createTable("test", function (table) {
     table.increments();
-    table.string('name');
+    table.string("name");
   });
-  const insertResult = await db('test').insert([{name: 'test'}, {name: 'test2'}]).returning('*');
+  const insertResult = await db("test")
+    .insert([{ name: "test" }, { name: "test2" }])
+    .returning("*");
   expect(insertResult).toMatchSnapshot();
   response = await db.raw("select * from test");
   expect(response.rows).toMatchSnapshot();
 });
-
 
 test("should get postgres client with ssl", async () => {
   await expect(async () => {
@@ -42,8 +44,6 @@ test("should get postgres client with ssl", async () => {
       5432
     )}/test`;
     const db = await getPostgresClient(dbUrl, true, false);
-    await db.raw('SELECT 1');
-  })
-    .rejects
-    .toThrow('The server does not support SSL connections');
+    await db.raw("SELECT 1");
+  }).rejects.toThrow("The server does not support SSL connections");
 });

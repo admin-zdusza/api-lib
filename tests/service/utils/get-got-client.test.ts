@@ -6,9 +6,7 @@ afterAll(async () => {
 });
 
 test("should get got client", async () => {
-  nock('http://localhost:80')
-    .get('/test')
-    .reply(200);
-  const response = await getGotClient().get('http://localhost:80/test');
+  nock("http://localhost:80").get("/test").reply(200);
+  const response = await getGotClient().get("http://localhost:80/test");
   expect(response.statusCode).toEqual(200);
 });

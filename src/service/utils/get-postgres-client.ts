@@ -22,10 +22,10 @@ const getPostgresClient = (
       connectionString: databaseUrl,
       ...(databaseSsl
         ? {
-          ssl: {
-            rejectUnauthorized: databaseRejectUnauthorized,
-          },
-        }
+            ssl: {
+              rejectUnauthorized: databaseRejectUnauthorized,
+            },
+          }
         : {}),
     },
     pool: {

@@ -1,11 +1,16 @@
-import { createLogger, logError, logInfo, logStorableEvent } from "../../../src";
+import {
+  createLogger,
+  logError,
+  logInfo,
+  logStorableEvent,
+} from "../../../src";
 
 let logger = null;
 let originalInfo = null;
 let originalError = null;
 
 beforeAll(() => {
-  logger = createLogger('test');
+  logger = createLogger("test");
   originalInfo = logger.info;
   originalError = logger.error;
   logger.info = jest.fn();
@@ -18,9 +23,9 @@ afterAll(() => {
 });
 
 test("should log", async () => {
-  logStorableEvent('test');
-  logInfo({test: 'test'});
-  logError(new Error('Error'));
+  logStorableEvent("test");
+  logInfo({ test: "test" });
+  logError(new Error("Error"));
   expect(logger.info).toHaveBeenCalledTimes(2);
   expect(logger.error).toHaveBeenCalled();
 });

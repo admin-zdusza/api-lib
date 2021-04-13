@@ -37,7 +37,7 @@
     "stringcase": "^4.3.1"
   },
   "scripts": {
-    "build": "rm -rf build && prettier 'src/**/*' --write --ignore-unknown && eslint --fix src/**/*.ts && tsc",
+    "build": "rm -rf build && prettier 'src/**/*' --write --ignore-unknown && eslint --fix src/**/*.ts && prettier 'tests/**/*' --write --ignore-unknown && eslint --fix tests/**/*.ts && tsc",
     "test": "jest --collect-coverage ./tests"
   },
   "jest": {
