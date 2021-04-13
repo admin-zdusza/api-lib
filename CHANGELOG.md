@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.1.0] - 2021-04-13
+### Added
+- typings and tests
+
 ## [2.0.0] - 2021-04-12
 ### Removed
 - static and default handlers
