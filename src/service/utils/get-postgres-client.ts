@@ -1,12 +1,12 @@
 import pg from "pg";
-import Knex from "knex";
+import Knex, { Knex as KnexType } from "knex";
 import { camelcase, snakecase } from "stringcase";
 
 const getPostgresClient = (
   databaseUrl: string,
   databaseSsl: boolean,
   databaseRejectUnauthorized: boolean
-) => {
+): KnexType => {
   pg.types.setTypeParser(pg.types.builtins.INT8, (value: string) => {
     return parseInt(value);
   });
@@ -22,10 +22,10 @@ const getPostgresClient = (
       connectionString: databaseUrl,
       ...(databaseSsl
         ? {
-            ssl: {
-              rejectUnauthorized: databaseRejectUnauthorized,
-            },
-          }
+          ssl: {
+            rejectUnauthorized: databaseRejectUnauthorized,
+          },
+        }
         : {}),
     },
     pool: {

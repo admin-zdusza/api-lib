@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should get postgres client 1`] = `
+Array [
+  Object {
+    "testValue_1": 1.2,
+    "testValue_2": 1.2,
+  },
+]
+`;
+
+exports[`should get postgres client 2`] = `
+Array [
+  Object {
+    "id": 1,
+    "name": "test",
+  },
+  Object {
+    "id": 2,
+    "name": "test2",
+  },
+]
+`;
+
+exports[`should get postgres client 3`] = `
+Array [
+  Object {
+    "id": 1,
+    "name": "test",
+  },
+  Object {
+    "id": 2,
+    "name": "test2",
+  },
+]
+`;

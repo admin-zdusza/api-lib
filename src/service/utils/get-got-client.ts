@@ -1,9 +1,9 @@
-import got from "got";
+import got, { Got } from "got";
 import HttpAgent from "agentkeepalive";
 
 const { HttpsAgent } = HttpAgent;
 
-const getGotClient = () => {
+const getGotClient = (): Got => {
   const httpAgent = new HttpAgent();
   const httpsAgent = new HttpsAgent();
 
